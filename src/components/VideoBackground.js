@@ -1,8 +1,20 @@
-import React from "react";
+import React, { createRef, useRef, useEffect } from "react";
 
-const VideoBackground = ({ currentVideo }) => {
+const VideoBackground = ({ currentVideo, muted }) => {
+  const ref = createRef();
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    } else {
+      // implement mute/unmute
+    }
+  }, [muted]);
+
   const videoProps =
-    "?autoplay=1&fullframe=1&controls=0&disablekb=1&loop=1&mute=1&playlist=" +
+    "?autoplay=1&fullframe=1&enablejsapi=1&controls=1&loop=1&playlist=" +
     currentVideo.videoId +
     "&start=" +
     currentVideo.start +
@@ -22,6 +34,8 @@ const VideoBackground = ({ currentVideo }) => {
       }}
     >
       <iframe
+        ref={ref}
+        id="video"
         title={currentVideo.location}
         key={currentVideo.id}
         width="100%"

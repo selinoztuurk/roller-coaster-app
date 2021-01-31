@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Selector from "./Selector";
 
-const SidePanel = ({ onRollerCoasterSelect, currentVideo }) => {
+const SidePanel = ({ onRollerCoasterSelect, currentVideo, onMute, muted }) => {
   const [panelActive, setPanelActive] = useState(true);
   return (
     <div style={{ display: "flex" }}>
@@ -32,10 +32,25 @@ const SidePanel = ({ onRollerCoasterSelect, currentVideo }) => {
         <p style={{ margin: "5%", fontSize: "15px" }}>
           A place to hang out for some virtual adrenaline rush.
         </p>
-        <Selector
-          onRollerCoasterSelect={onRollerCoasterSelect}
-          currentVideo={currentVideo}
-        />
+        <div style={{ display: "inline" }}>
+          <div style={{ marginLeft: "5%" }}>
+            <Selector
+              onRollerCoasterSelect={onRollerCoasterSelect}
+              currentVideo={currentVideo}
+            />
+          </div>
+          {true ? null : (
+            <button
+              style={{
+                marginLeft: "10%",
+              }}
+              className="ui basic button"
+              onClick={() => onMute()}
+            >
+              {muted ? "Unmute" : "Mute"}
+            </button>
+          )}
+        </div>
       </div>
       <div
         style={{

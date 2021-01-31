@@ -5,7 +5,7 @@ const SelectorItem = ({ location, id, onRollerCoasterSelect, countryCode }) => {
 
   return (
     <div className="item" onClick={() => onRollerCoasterSelect(id)}>
-      <img src={src}></img>
+      <img alt="flag" src={src}></img>
       {location}
     </div>
   );
