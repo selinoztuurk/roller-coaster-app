@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A demo for this project can be found at [this link](https://buckle-up.herokuapp.com).
+
 
 ## Available Scripts
 
